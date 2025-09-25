@@ -1,33 +1,19 @@
 import css from './Catalog.module.css';
+import Container from '../../components/Container/Container';
+import Grid from '../../components/CarGrid/CarGrid';
 
 const Catalog = () => {
   return (
-    <div className={css.catContainer}>
-      <div>Filter Bar</div>
-      <div>
-        <ul>
-          <li>
-            <p>Car Img</p>
-            <p>Car description</p>
-            <button>Read More</button>
-          </li>
-          <li>
-            <p>Car Img</p>
-            <p>Car description</p>
-            <button>Read More</button>
-          </li>
-          <li>
-            <p>Car Img</p>
-            <p>Car description</p>
-            <button>Read More</button>
-          </li>
-          <li>
-            <p>Car Img</p>
-            <p>Car description</p>
-            <button>Read More</button>
-          </li>
-        </ul>
-      </div>
+    <div>
+      <Container>
+        <div className={css.catalogContainer}>
+          <div className={css.filterBox}>Filter Box</div>
+          <Grid />
+          <button className={css.loadMoreBtn} type="button">
+            Load more
+          </button>
+        </div>
+      </Container>
     </div>
   );
 };

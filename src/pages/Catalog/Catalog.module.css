@@ -1,5 +1,44 @@
-.catContainer {
+.catalogContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0 120px;
+
+  /*! remove after testing*/
   border: 0.5px dashed red;
 
+}
+
+.filterBox {
+  width: 924px;
+  height: 68px;
+  text-align: center;
+  margin-top: 84px;
+
+  /*! remove after testing*/
+  border: 0.5px dashed blue;
+
+}
+
+
+
+.loadMoreBtn {
+  font: var(--button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 1px solid #3470ff;
+  border-radius: 12px;
+  width: 156px;
+  height: 44px;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  background: none;
+
+}
+
+.loadMoreBtn:hover {
+  border-color: var(--button-hover);
 }

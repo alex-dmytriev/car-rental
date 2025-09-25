@@ -1,0 +1,68 @@
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+
+
+
+/* Default body setup */
+body {
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Remove list styles */
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Anchor default reset */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image scaling */
+img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* Table cleanup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}

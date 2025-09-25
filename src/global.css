@@ -1,0 +1,35 @@
+@import 'modern-normalize/modern-normalize.css';
+@import './reset.css';
+
+
+:root {
+  --font-main: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+
+  --font-accent: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+
+  /* Typography */
+  --font-h1: 700 60px / 1.2 "Manrope", sans-serif;
+  --font-h2: 600 24px / 1.33333 "Manrope", sans-serif;
+  --font-body: 500 16px / 1.25 "Manrope", sans-serif;
+  --font-button: 600 16px / 1.25 "Manrope", sans-serif;
+
+  /* Colors */
+  --main: #101828;
+  --gray: #8d929a;
+  --gray-light: #dadde1;
+  --badges: #f2f4f7;
+  --inputs: #f7f7f7;
+  --white: #fff;
+  --button: #3470ff;
+  --button-hover: #0b44cd;
+  --link-hover: #0b44cd;
+  --header-bg: #f2f4f7
+}
+
+body {
+  font-family: var(--font-main);
+}

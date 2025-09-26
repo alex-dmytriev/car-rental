@@ -1,0 +1,111 @@
+.filterBox {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+
+  width: 924px;
+  height: 68px;
+  text-align: center;
+  margin-top: 84px;
+
+}
+
+
+.filterItemBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+}
+
+.mileageRange {
+  display: flex;
+}
+
+.searchBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+  background: var(--button);
+  font: var(--font-button);
+  color: var(--white);
+}
+
+.labels {
+  font: var(--font-body-normal);
+  color: var(--gray);
+}
+
+.selectWrapper {
+  position: relative;
+  z-index: 1000;
+}
+
+.dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  /* Safari */
+  -moz-appearance: none;
+  /* Firefox */
+
+  background-image: url('/icons/chevron-down.svg');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  border: none;
+  font: var(--font-body);
+  color: var(--main);
+
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 204px;
+  height: 44px;
+
+  background-color: var(--inputs);
+}
+
+.priceDropdown {
+  width: 196px;
+}
+
+
+.minMilInput {
+  border: none;
+  width: 160px;
+  height: 44px;
+  border-radius: 12px 0 0 12px;
+  border-right: 1px solid #dadde1;
+  background-color: var(--inputs);
+  font: var(--font-body);
+  color: var(--main);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: auto;
+  padding-left: 24px;
+}
+
+.maxMilInput {
+  border: none;
+  border-radius: 0 12px 12px 0;
+  width: 160px;
+  height: 44px;
+  background-color: var(--inputs);
+  font: var(--font-body);
+  color: var(--main);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: auto;
+  padding-left: 24px;
+}

@@ -49,7 +49,7 @@ const Test = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const data = await getCars();
+        const data = await getCars({ page: '1', limit: '30' });
         console.log('Fetched cars:', data); // ✅ Console output
         console.log('API response for getCars:', data);
 
@@ -94,7 +94,7 @@ const Test = () => {
           {Array.isArray(cars) &&
             cars.map((car, index) => (
               <li key={index}>
-                {car.brand} {car.model} — ${car.rentalPrice}
+                {car.brand} {car.model} — ${car.rentalPrice}, ID: {car.id}
               </li>
             ))}
         </ul>

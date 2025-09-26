@@ -1,0 +1,85 @@
+.catalogBox {
+  width: 1200px;
+  height: 500px;
+  border: 0.5px dashed black;
+  text-align: center;
+  margin-top: 56px;
+
+}
+
+.card {
+  width: 276px;
+  height: 424px;
+  border: 0.5px dashed black;
+}
+
+.imgBox {
+  border-radius: 14px;
+  width: 276px;
+  height: 268px;
+  background: linear-gradient(180deg, rgba(18, 20, 23, 0.5) 0%, rgba(18, 20, 23, 0.5) 100%);
+}
+
+.brandLine {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 11px;
+  font: var(--body);
+  margin-top: 16px;
+
+}
+
+.bmyBox {
+  display: flex;
+}
+
+.modelSpn {
+  color: var(--button);
+
+}
+
+.addressLine {
+  display: flex;
+  font: var(--font-body-normal);
+  color: var(--gray);
+  margin-top: 8px;
+
+
+}
+
+.address {
+  border-right: 1px solid var(--gray-light);
+  padding: 0 6px;
+
+}
+
+.city {
+  padding-left: 0;
+}
+
+.typeLine {
+  display: flex;
+  color: var(--gray);
+  font: var(--font-body-normal);
+  margin-top: 4px;
+
+}
+
+.mileage {
+  padding: 0 6px;
+}
+
+.cardBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  border-radius: 12px;
+  width: 276px;
+  height: 44px;
+  background: var(--button);
+  font: var(--font-button);
+  color: var(--white);
+  margin-top: 28px;
+}

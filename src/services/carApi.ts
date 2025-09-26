@@ -1,8 +1,16 @@
 import axios from 'axios';
 import { type Car } from '../types/car';
 
+const axiosAPI = axios.create({
+  baseURL: 'https://car-rental-api.goit.global',
+});
+
+//* Get list of cars with params
 interface CarAPIResponse {
-  results: Car[];
+  cars: Car[];
+  page: number;
+  totalCars: number;
+  totalPages: number;
 }
 
 interface CarQueryParams {
@@ -15,18 +23,22 @@ interface CarQueryParams {
 }
 
 export const getCars = async (params?: CarQueryParams): Promise<CarAPIResponse> => {
-  const baseURL = 'https://car-rental-api.goit.global';
   const config = {
     params: params ?? {},
   };
-
-  const response = await axios.get<CarAPIResponse>(`${baseURL}/cars`, config);
-
+  const response = await axiosAPI.get<CarAPIResponse>('/cars', config);
   return response.data;
 };
 
-// const data = await getCars();
-// console.log('Full List', data);
+//* Get Brand list
+export const getBrands = async (): Promise<string[]> => {
+  const response = await axiosAPI.get<string[]>('/brands');
+  return response.data;
+};
 
-// const brandFilter = await getCars({ brand: 'volvo' });
-// console.log('Brand Volvo', brandFilter);
+//* Get a car by ID
+
+export const getCarById = async (id: string): Promise<Car> => {
+  const response = await axiosAPI.get<Car>(`/cars/${id}`);
+  return response.data;
+};

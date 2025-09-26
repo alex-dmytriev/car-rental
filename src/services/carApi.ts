@@ -18,13 +18,22 @@ interface CarQueryParams {
   rentalPrice?: string;
   minMileage?: string;
   maxMileage?: string;
-  limit?: string;
-  page?: string;
+  limit: string;
+  page: string;
 }
 
 export const getCars = async (params?: CarQueryParams): Promise<CarAPIResponse> => {
+  const { brand, rentalPrice, minMileage, maxMileage, limit = '12', page = '1' } = params || {};
+
   const config = {
-    params: params ?? {},
+    params: {
+      brand,
+      rentalPrice,
+      minMileage,
+      maxMileage,
+      limit,
+      page,
+    },
   };
   const response = await axiosAPI.get<CarAPIResponse>('/cars', config);
   return response.data;

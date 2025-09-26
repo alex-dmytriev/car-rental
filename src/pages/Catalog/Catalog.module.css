@@ -10,17 +10,6 @@
 
 }
 
-.filterBox {
-  width: 924px;
-  height: 68px;
-  text-align: center;
-  margin-top: 84px;
-
-  /*! remove after testing*/
-  border: 0.5px dashed blue;
-
-}
-
 
 
 .loadMoreBtn {

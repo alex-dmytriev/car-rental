@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { type Car } from '../types/car';
+import { type CarQueryParams } from '../types/car';
 
 const axiosAPI = axios.create({
   baseURL: 'https://car-rental-api.goit.global',
@@ -11,15 +12,6 @@ interface CarAPIResponse {
   page: number;
   totalCars: number;
   totalPages: number;
-}
-
-interface CarQueryParams {
-  brand?: string;
-  rentalPrice?: string;
-  minMileage?: string;
-  maxMileage?: string;
-  limit: string;
-  page: string;
 }
 
 export const getCars = async (params?: CarQueryParams): Promise<CarAPIResponse> => {

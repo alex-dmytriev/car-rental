@@ -49,7 +49,7 @@ const Test = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const data = await getCars({ page: '1', limit: '30' });
+        const data = await getCars({ page: '1', limit: '12' });
         console.log('Fetched cars:', data); // ✅ Console output
         console.log('API response for getCars:', data);
 

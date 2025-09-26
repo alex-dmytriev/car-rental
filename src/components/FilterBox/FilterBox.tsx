@@ -24,8 +24,6 @@ const FilterBox = () => {
     fetchBrands();
   }, [fetchBrands]);
 
-  console.log('Oh br: ', brands);
-
   const handleSubmit = () => {}; //TODO: add submit logic here
 
   return (

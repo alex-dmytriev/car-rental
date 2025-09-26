@@ -1,13 +1,8 @@
-import { useEffect } from 'react';
 import { useCarStore } from '../../store/carStore';
 import css from './CarGrid.module.css';
 
 const CarGrid = () => {
-  const { cars, fetchCars } = useCarStore();
-
-  useEffect(() => {
-    fetchCars({ limit: '12', page: '1' });
-  }, [fetchCars]);
+  const { cars } = useCarStore();
 
   console.log('this is cars object: ', cars);
 

@@ -11,6 +11,7 @@ interface CarStore {
 
   fetchBrands: () => Promise<void>;
   fetchCars: (params: CarQueryParams) => Promise<void>;
+  loadMoreCars: () => Promise<void>;
 }
 
 export const useCarStore = create<CarStore>((set, get) => ({

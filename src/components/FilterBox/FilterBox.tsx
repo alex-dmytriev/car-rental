@@ -12,10 +12,10 @@ interface FilterBoxProps {
 
 const FilterBox = () => {
   const initialValues: FilterBoxProps = {
-    brand: 'Choose a brand',
-    price: 'Choose a price',
-    minMileage: 'From',
-    maxMileage: 'To',
+    brand: '',
+    price: '',
+    minMileage: '',
+    maxMileage: '',
   };
 
   const { brands, fetchBrands } = useCarStore();
@@ -24,7 +24,28 @@ const FilterBox = () => {
     fetchBrands();
   }, [fetchBrands]);
 
-  const handleSubmit = () => {}; //TODO: add submit logic here
+  const setFilters = useCarStore(state => state.setFilters);
+  const fetchCars = useCarStore(state => state.fetchCars);
+  const clearFilters = useCarStore(state => state.clearFilters);
+
+  const handleSubmit = (values: FilterBoxProps) => {
+    clearFilters();
+
+    const newFilterValues = {
+      brand: values.brand,
+      rentalPrice: values.price,
+      minMileage: values.minMileage,
+      maxMileage: values.maxMileage,
+    };
+
+    setFilters(newFilterValues);
+
+    fetchCars({
+      ...newFilterValues,
+      page: '1',
+      limit: '12',
+    });
+  };
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
@@ -57,8 +78,14 @@ const FilterBox = () => {
         <div className={css.filterItemBox}>
           <label className={css.labels}>Car mileage / km</label>
           <div className={css.mileageRange}>
-            <Field className={css.minMilInput} type="text" name="minMileage" />
-            <Field className={css.maxMilInput} type="text" name="maxMileage" />
+            <div className={css.inputPrefix}>
+              <span className={css.prefix}>From</span>
+              <Field className={css.minMilInput} type="text" name="minMileage" />
+            </div>
+            <div className={css.inputPrefix}>
+              <span className={css.prefix}>To</span>
+              <Field className={css.maxMilInput} type="text" name="maxMileage" />
+            </div>
           </div>
         </div>
         <button className={css.searchBtn} type="submit">

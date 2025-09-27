@@ -2,16 +2,26 @@ import { create } from 'zustand';
 import { getBrands, getCars } from '../services/carApi';
 import type { Car, CarQueryParams } from '../types/car';
 
+interface CarFilters {
+  brand: string;
+  rentalPrice: string;
+  minMileage: string;
+  maxMileage: string;
+}
+
 interface CarStore {
   brands: string[];
   cars: Car[];
   page: number;
   totalPages: number;
   loading: boolean;
+  filters: CarFilters;
 
   fetchBrands: () => Promise<void>;
   fetchCars: (params: CarQueryParams) => Promise<void>;
   loadMoreCars: () => Promise<void>;
+  setFilters: (filters: CarFilters) => void;
+  clearFilters: () => void;
 }
 
 export const useCarStore = create<CarStore>((set, get) => ({
@@ -43,13 +53,13 @@ export const useCarStore = create<CarStore>((set, get) => ({
   },
 
   loadMoreCars: async () => {
-    const { page, totalPages, cars } = get();
+    const { page, totalPages, cars, filters } = get();
     if (page >= totalPages) return;
 
     set({ loading: true });
 
     try {
-      const response = await getCars({ page: String(page + 1), limit: String(12) });
+      const response = await getCars({ ...filters, page: String(page + 1), limit: String(12) });
       set({
         cars: [...cars, ...response.cars],
         page: Number(response.page),
@@ -61,4 +71,22 @@ export const useCarStore = create<CarStore>((set, get) => ({
       set({ loading: false });
     }
   },
+
+  filters: {
+    brand: '',
+    rentalPrice: '',
+    minMileage: '',
+    maxMileage: '',
+  },
+
+  setFilters: filters => set({ filters }),
+  clearFilters: () =>
+    set({
+      filters: {
+        brand: '',
+        rentalPrice: '',
+        minMileage: '',
+        maxMileage: '',
+      },
+    }),
 }));

@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { getBrands, getCars } from '../services/carApi';
 import type { Car, CarQueryParams } from '../types/car';
+import toast from 'react-hot-toast';
 
 interface CarFilters {
   brand: string;
@@ -16,12 +17,14 @@ interface CarStore {
   totalPages: number;
   loading: boolean;
   filters: CarFilters;
+  favorites: string[];
 
   fetchBrands: () => Promise<void>;
   fetchCars: (params: CarQueryParams) => Promise<void>;
   loadMoreCars: () => Promise<void>;
   setFilters: (filters: CarFilters) => void;
   clearFilters: () => void;
+  toggleFavorite: (carID: string) => void;
 }
 
 export const useCarStore = create<CarStore>((set, get) => ({
@@ -46,7 +49,7 @@ export const useCarStore = create<CarStore>((set, get) => ({
         totalPages: response.totalPages,
       });
     } catch (error) {
-      console.error('Failed to fetch cars: ', error); //TODO: replace with toast message
+      toast.error(`Failed to fetch cars: ${error}`);
     } finally {
       set({ loading: false });
     }
@@ -66,7 +69,7 @@ export const useCarStore = create<CarStore>((set, get) => ({
         totalPages: response.totalPages,
       });
     } catch (error) {
-      console.error('Failed to fetch cars: ', error); //TODO: replace with toast message
+      toast.error(`Failed to fetch cars: ${error}`);
     } finally {
       set({ loading: false });
     }
@@ -77,6 +80,18 @@ export const useCarStore = create<CarStore>((set, get) => ({
     rentalPrice: '',
     minMileage: '',
     maxMileage: '',
+  },
+
+  favorites: JSON.parse(localStorage.getItem('favorites') || '[]'),
+
+  toggleFavorite: (carId: string) => {
+    const { favorites } = get();
+    const updated = favorites.includes(carId)
+      ? favorites.filter(id => id !== carId)
+      : [...favorites, carId];
+
+    set({ favorites: updated });
+    localStorage.setItem('favorites', JSON.stringify(updated));
   },
 
   setFilters: filters => set({ filters }),

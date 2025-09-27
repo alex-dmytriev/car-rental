@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useCarStore } from '../../store/carStore';
 import HeartIcon from '../HeartIcon/HeartIcon';
 import css from './CarGrid.module.css';
@@ -42,9 +43,9 @@ const CarGrid = () => {
                     {car.mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} km
                   </p>
                 </div>
-                <button className={css.cardBtn} type="button">
+                <Link className={css.cardBtn} to={`/catalog/${car.id}`}>
                   Read more
-                </button>
+                </Link>
               </li>
             );
           })}

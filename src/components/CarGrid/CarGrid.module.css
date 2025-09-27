@@ -53,6 +53,17 @@
 
 .bmyBox {
   display: flex;
+  align-items: center;
+
+  width: 85%;
+
+}
+
+.bmyText {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .modelSpn {

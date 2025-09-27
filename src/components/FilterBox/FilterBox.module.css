@@ -41,6 +41,7 @@
 .labels {
   font: var(--font-body-normal);
   color: var(--gray);
+  margin-bottom: 8px;
 }
 
 .selectWrapper {
@@ -74,10 +75,29 @@
   height: 44px;
 
   background-color: var(--inputs);
+
 }
 
 .priceDropdown {
   width: 196px;
+}
+
+
+.inputPrefix {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+}
+
+.prefix {
+  position: absolute;
+  left: 24px;
+  font: var(--font-body);
+  color: var(--black);
+  pointer-events: none;
+
+
 }
 
 
@@ -93,7 +113,8 @@
   padding-top: 12px;
   padding-bottom: 12px;
   padding-right: auto;
-  padding-left: 24px;
+  padding-left: 66px;
+  flex: 1;
 }
 
 .maxMilInput {
@@ -107,5 +128,6 @@
   padding-top: 12px;
   padding-bottom: 12px;
   padding-right: auto;
-  padding-left: 24px;
+  padding-left: 47px;
+  flex: 1;
 }

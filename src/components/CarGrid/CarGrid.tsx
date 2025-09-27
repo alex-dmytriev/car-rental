@@ -18,7 +18,7 @@ const CarGrid = () => {
               </div>
               <div className={css.brandLine}>
                 <div className={css.bmyBox}>
-                  <p>
+                  <p className={css.bmyText}>
                     {car.brand} <span className={css.modelSpn}>{car.model}</span>, {car.year}
                   </p>
                 </div>

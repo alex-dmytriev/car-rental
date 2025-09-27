@@ -17,12 +17,14 @@ interface CarStore {
   totalPages: number;
   loading: boolean;
   filters: CarFilters;
+  favorites: string[];
 
   fetchBrands: () => Promise<void>;
   fetchCars: (params: CarQueryParams) => Promise<void>;
   loadMoreCars: () => Promise<void>;
   setFilters: (filters: CarFilters) => void;
   clearFilters: () => void;
+  toggleFavorite: (carID: string) => void;
 }
 
 export const useCarStore = create<CarStore>((set, get) => ({
@@ -78,6 +80,18 @@ export const useCarStore = create<CarStore>((set, get) => ({
     rentalPrice: '',
     minMileage: '',
     maxMileage: '',
+  },
+
+  favorites: JSON.parse(localStorage.getItem('favorites') || '[]'),
+
+  toggleFavorite: (carId: string) => {
+    const { favorites } = get();
+    const updated = favorites.includes(carId)
+      ? favorites.filter(id => id !== carId)
+      : [...favorites, carId];
+
+    set({ favorites: updated });
+    localStorage.setItem('favorites', JSON.stringify(updated));
   },
 
   setFilters: filters => set({ filters }),

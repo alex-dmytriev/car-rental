@@ -33,6 +33,7 @@
   width: 276px;
   height: 268px;
   background: linear-gradient(180deg, rgba(18, 20, 23, 0.5) 0%, rgba(18, 20, 23, 0.5) 100%);
+  position: relative;
 }
 
 .cardImg {
@@ -40,6 +41,16 @@
   height: 100%;
   object-fit: cover;
   border-radius: 14px;
+}
+
+.heartIcon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  z-index: 10;
+
 }
 
 .brandLine {

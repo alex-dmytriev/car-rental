@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { getBrands, getCars } from '../services/carApi';
 import type { Car, CarQueryParams } from '../types/car';
+import toast from 'react-hot-toast';
 
 interface CarFilters {
   brand: string;
@@ -46,7 +47,7 @@ export const useCarStore = create<CarStore>((set, get) => ({
         totalPages: response.totalPages,
       });
     } catch (error) {
-      console.error('Failed to fetch cars: ', error); //TODO: replace with toast message
+      toast.error(`Failed to fetch cars: ${error}`);
     } finally {
       set({ loading: false });
     }
@@ -66,7 +67,7 @@ export const useCarStore = create<CarStore>((set, get) => ({
         totalPages: response.totalPages,
       });
     } catch (error) {
-      console.error('Failed to fetch cars: ', error); //TODO: replace with toast message
+      toast.error(`Failed to fetch cars: ${error}`);
     } finally {
       set({ loading: false });
     }

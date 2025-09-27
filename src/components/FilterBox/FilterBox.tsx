@@ -3,6 +3,8 @@ import { useCarStore } from '../../store/carStore';
 import css from './FilterBox.module.css';
 import { Formik, Form, Field } from 'formik';
 
+const PRICE_OPTIONS = ['30', '40', '50', '60', '70', '80'];
+
 interface FilterBoxProps {
   brand: string;
   price: string;
@@ -67,12 +69,11 @@ const FilterBox = () => {
           </label>
           <Field className={`${css.dropdown} ${css.priceDropdown}`} as="select" name="price">
             <option value="">Choose a price</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
-            <option value="50">50</option>
-            <option value="60">60</option>
-            <option value="70">70</option>
-            <option value="80">80</option>
+            {PRICE_OPTIONS.map(price => (
+              <option key={price} value={price}>
+                {price}
+              </option>
+            ))}
           </Field>
         </div>
         <div className={css.filterItemBox}>

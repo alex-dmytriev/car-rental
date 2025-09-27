@@ -13,7 +13,6 @@ const CarGrid = () => {
           cars.map(car => (
             <li key={car.id} className={css.card}>
               <div className={css.imgBox}>
-                {/* <p>Like btn</p> */}
                 <img className={css.cardImg} src={car.img} />
               </div>
               <div className={css.brandLine}>

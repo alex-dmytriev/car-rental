@@ -1,10 +1,15 @@
+.carDetailsBox {
+  width: 100%;
+
+}
+
 .carTitleBox {
-  width: 488px;
   display: flex;
   align-items: center;
   gap: 16px;
   margin-top: 20px;
   margin-bottom: 8px;
+  width: 100%;
 }
 
 .carTitle {
@@ -23,13 +28,17 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 8px;
+  width: 100%;
+
+
 }
 
 .addressBox {
   display: flex;
   align-items: center;
   width: 100%;
+
 }
 
 .iconLocation {
@@ -47,5 +56,9 @@
 
 .description {
   width: 100%;
-  margin-bottom: 68px;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+
 }

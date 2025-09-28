@@ -10,24 +10,25 @@ import CarDetails from '../../components/CarDetails/CarDetails';
 import RentalConditions from '../../components/RentalConditions/RentalConditions';
 import CarSpecs from '../../components/CarSpecs/CarSpecs';
 import CarAccessories from '../../components/CarAccessories/CarAccessories';
+import { useParams } from 'react-router-dom';
 
 const CarPage = () => {
   const [car, setCar] = useState<Car | null>(null);
-  // const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
     const fetchCarByID = async () => {
-      const testID = '5ed1cf8e-d493-459e-9cc6-1a1ca22a1900';
+      if (!id) return;
 
       try {
-        const data = await getCarById(testID);
+        const data = await getCarById(id);
         console.log('Fetched Car: ', data); //! Remove when tested
         setCar(data);
       } catch (err) {
         const errMessage = 'Failed to load Car by ID';
         console.error('Fetch error', err);
-        // setError(errMessage);
         toast.error(errMessage);
       } finally {
         setIsLoading(false);
@@ -35,7 +36,9 @@ const CarPage = () => {
     };
 
     fetchCarByID();
-  }, []);
+  }, [id]);
+
+  const fullAccessories = [...(car?.accessories ?? []), ...(car?.functionalities ?? [])];
 
   return (
     <div>
@@ -47,10 +50,38 @@ const CarPage = () => {
             <CarSubmitForm />
           </div>
           <div className={css.detailsColumn}>
-            <CarDetails />
-            <RentalConditions />
-            <CarSpecs />
-            <CarAccessories />
+            {car && (
+              <CarDetails
+                brand={car?.brand}
+                model={car.model}
+                year={car.year}
+                id={car.id.slice(0, 4)}
+                city={car.address.split(',')[1].trim()}
+                country={car.address.split(',')[2].trim()}
+                mileage={car.mileage}
+                rentalPrice={car.rentalPrice}
+                description={car.description ?? ''}
+              />
+            )}
+
+            <div className={css.combiBox}>
+              <RentalConditions
+                conditions={
+                  Array.isArray(car?.rentalConditions)
+                    ? car.rentalConditions
+                    : car?.rentalConditions
+                    ? [car.rentalConditions]
+                    : []
+                }
+              />
+              <CarSpecs
+                year={car?.year ?? 0}
+                type={car?.type ?? 'n/d'}
+                fuelConsumption={car?.fuelConsumption ?? '0'}
+                engineSize={car?.engineSize ?? 'n/d'}
+              />
+              <CarAccessories accessories={fullAccessories} />
+            </div>
           </div>
         </div>
       </Container>

@@ -1,37 +1,42 @@
 import css from './CarSpecs.module.css';
 
-const CarSpecs = () => {
+interface CarSpecsProps {
+  year: number;
+  type: string;
+  fuelConsumption: string;
+  engineSize: string;
+}
+
+const CarSpecs: React.FC<CarSpecsProps> = ({ year, type, fuelConsumption, engineSize }) => {
   return (
-    <div>
-      <div className={css.listBox}>
-        <h3 className={css.listTitle}>Car Specifications:</h3>
-        <ul className={css.list}>
-          <li className={css.listItem}>
-            <svg width="16" height="16">
-              <use href="#icon-calendar" />
-            </svg>
-            <p>Minimum age: 25</p>
-          </li>
-          <li className={css.listItem}>
-            <svg width="16" height="16">
-              <use href="#icon-car" />
-            </svg>
-            <p>Security deposit required</p>
-          </li>
-          <li className={css.listItem}>
-            <svg width="16" height="16">
-              <use href="#icon-fuel-pump" />
-            </svg>
-            <p>Valid driver’s license</p>
-          </li>
-          <li className={css.listItem}>
-            <svg width="16" height="16">
-              <use href="#icon-gear" />
-            </svg>
-            <p>Engine Size: 3.6L V6</p>
-          </li>
-        </ul>
-      </div>
+    <div className={css.listBox}>
+      <h3 className={css.listTitle}>Car Specifications:</h3>
+      <ul className={css.list}>
+        <li className={css.listItem}>
+          <svg width="16" height="16">
+            <use href="#icon-calendar" />
+          </svg>
+          <p>{`Year: ${year}`}</p>
+        </li>
+        <li className={css.listItem}>
+          <svg width="16" height="16">
+            <use href="#icon-car" />
+          </svg>
+          <p>{`Type: ${type}`}</p>
+        </li>
+        <li className={css.listItem}>
+          <svg width="16" height="16">
+            <use href="#icon-fuel-pump" />
+          </svg>
+          <p>{`Fuel Consumption: ${fuelConsumption}`}</p>
+        </li>
+        <li className={css.listItem}>
+          <svg width="16" height="16">
+            <use href="#icon-gear" />
+          </svg>
+          <p>{`Engine Size: ${engineSize}`}</p>
+        </li>
+      </ul>
     </div>
   );
 };

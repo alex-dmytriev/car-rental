@@ -4,6 +4,9 @@
   display: flex;
   gap: 72px;
 
+
+
+
 }
 
 /* Image + Form column*/
@@ -14,9 +17,24 @@
 
 /* Car detailed info column*/
 .detailsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
   width: 488px;
   height: 1040px;
   font: var(--font-body);
   color: var(--main);
+
+}
+
+.combiBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+
 
 }

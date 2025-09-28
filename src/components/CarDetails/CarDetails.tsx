@@ -1,26 +1,47 @@
 import css from './CarDetails.module.css';
 
-const CarDetails = () => {
+interface CarDetailsProps {
+  brand: string;
+  model: string;
+  year: number;
+  id: string;
+  city: string;
+  country: string;
+  mileage: number;
+  rentalPrice: string;
+  description: string;
+}
+
+const CarDetails: React.FC<CarDetailsProps> = ({
+  brand,
+  model,
+  year,
+  id,
+  city,
+  country,
+  mileage,
+  rentalPrice,
+  description,
+}) => {
   return (
-    <div>
+    <div className={css.carDetailsBox}>
       <div className={css.carTitleBox}>
-        <div className={css.carTitle}>Buick Enclave, 2008</div>
-        <div className={css.carId}>Id: 9582</div>
+        <h3 className={css.carTitle}>{`${brand} ${model}, ${year}`}</h3>
+        <p className={css.carId}>{`Id: ${id}`}</p>
       </div>
       <div className={css.shortDetailsBox}>
         <div className={css.addressBox}>
           <svg className={css.iconLocation} width="16" height="16">
             <use href="#icon-location" />
           </svg>
-          <div className={css.address}>Kyiv, Ukraine</div>
-          <div className={css.mileage}>Mileage: 5858 km</div>
+          <p className={css.address}>
+            {city}, {country}
+          </p>
+          <p className={css.mileage}>{`Mileage: ${mileage} km`}</p>
         </div>
-        <div className={css.price}>$40</div>
+        <p className={css.price}>{`$${rentalPrice}`}</p>
       </div>
-      <div className={css.description}>
-        The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious
-        features.
-      </div>
+      <p className={css.description}>{description}</p>
     </div>
   );
 };

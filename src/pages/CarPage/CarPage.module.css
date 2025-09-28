@@ -1,0 +1,22 @@
+.carPageContainer {
+  padding: 0 120px;
+  margin: 84px 0;
+  display: flex;
+  gap: 72px;
+
+}
+
+/* Image + Form column*/
+.imgFormColumn {
+  width: 640px;
+  height: 1040px;
+}
+
+/* Car detailed info column*/
+.detailsColumn {
+  width: 488px;
+  height: 1040px;
+  font: var(--font-body);
+  color: var(--main);
+
+}

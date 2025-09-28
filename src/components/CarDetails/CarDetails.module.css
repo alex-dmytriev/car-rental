@@ -1,0 +1,64 @@
+.carDetailsBox {
+  width: 100%;
+
+}
+
+.carTitleBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.carTitle {
+  font: var(--font-h2);
+}
+
+.carId {
+  font: var(--font-body);
+  color: var(--gray);
+  padding-top: 8px;
+}
+
+
+.shortDetailsBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 8px;
+  width: 100%;
+
+
+}
+
+.addressBox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+.iconLocation {
+  margin-right: 4px;
+}
+
+.address {
+  margin-right: 16px;
+}
+
+.price {
+  font: var(--font-h2);
+  color: var(--button);
+}
+
+.description {
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+
+}

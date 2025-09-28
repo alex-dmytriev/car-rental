@@ -1,0 +1,22 @@
+.listBox {
+  width: 100%;
+
+}
+
+.listTitle {
+  font: var(--font-h3);
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 110px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

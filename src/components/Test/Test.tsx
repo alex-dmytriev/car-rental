@@ -33,7 +33,7 @@ const Test = () => {
 
       try {
         const data = await getCarById(testID);
-        console.log('Fetched Car: ', data);
+        console.log('Fetched Car: ', data); //! Remove when tested
         setCar(data);
       } catch (err) {
         setError('Failed to load Car by ID');

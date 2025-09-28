@@ -4,18 +4,22 @@ import Home from './pages/Home/Home';
 import Catalog from './pages/Catalog/Catalog';
 
 import Test from './components/Test/Test';
-import CarDetails from './pages/CarDetails/CarDetails';
+import CarPage from './pages/CarPage/CarPage';
 import Sprite from './components/Sprite/Sprite';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
     <>
       <DefaultLayout>
+        <div>
+          <Toaster />
+        </div>
         <Sprite />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/catalog/:id" element={<CarDetails />} />
+          <Route path="/catalog/:id" element={<CarPage />} />
           <Route path="/test" element={<Test />} />
         </Routes>
       </DefaultLayout>

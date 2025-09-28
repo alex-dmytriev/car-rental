@@ -1,14 +1,60 @@
 import Container from '../../components/Container/Container';
 import css from './CarDetails.module.css';
+import { Field, Formik, Form } from 'formik';
 
 const CarDetails = () => {
+  const initialValues = {
+    name: '',
+    email: '',
+    date: '',
+    comment: '',
+  };
+  const handleSubmit = () => {};
+
   return (
     <div>
       <Container>
         <div className={css.carDetailsContainer}>
           <div className={css.imgFormColumn}>
             <div className={css.imageBox}>Main Image block</div>
-            <div className={css.formBox}>Car book form</div>
+            <div className={css.formBox}>
+              <div className={css.formTitleBox}>
+                <h3 className={css.formTitle}>Book your car now</h3>
+                <p className={css.formSubText}>Stay connected! We are always ready to help you.</p>
+              </div>
+              <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+                <Form className={css.form}>
+                  <Field
+                    className={css.formInput}
+                    type="text"
+                    name="name"
+                    placeholder="Name*"
+                  ></Field>
+                  <Field
+                    className={css.formInput}
+                    type="text"
+                    name="email"
+                    placeholder="Email*"
+                  ></Field>
+                  <Field
+                    className={css.formInput}
+                    type="text"
+                    name="date"
+                    placeholder="Booking date"
+                  ></Field>
+                  <Field
+                    className={`${css.formInput} ${css.formTextArea}`}
+                    as="textarea"
+                    name="comment"
+                    placeholder="Comment"
+                    rows="4"
+                  ></Field>
+                  <button className={css.sendBtn} type="submit">
+                    Send
+                  </button>
+                </Form>
+              </Formik>
+            </div>
           </div>
           <div className={css.detailsColumn}>
             <div className={css.carTitleBox}>

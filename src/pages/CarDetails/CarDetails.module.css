@@ -6,15 +6,11 @@
 
 }
 
+/* Image + Form column*/
 .imgFormColumn {
   width: 640px;
   height: 1040px;
-
-  /*! Remove once tested*/
-  /* border: 0.5px dashed red; */
-  /*! Remove once tested*/
 }
-
 
 .imageBox {
   width: 640px;
@@ -22,10 +18,8 @@
   border-radius: 19px;
   margin-bottom: 40px;
 
-  /*! Remove once tested*/
-  /* border: 0.5px dashed black; */
-  background-color: grey;
-  /*! Remove once tested*/
+  /*!Remove when tested*/
+  background-color: gray;
 }
 
 .formBox {
@@ -33,24 +27,66 @@
   height: 488px;
   border-radius: 10px;
   border: 1px solid var(--gray-light);
+  padding: 32px;
+  font: var(--font-body);
+  color: var(--gray);
 
-
-  /*! Remove once tested*/
-  /* border: 0.5px dashed black; */
-  /* background-color: grey; */
-  /*! Remove once tested*/
 }
 
 
+
+.formTitle {
+  font: var(--font-h3);
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+.formSubText {
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formInput {
+  padding: 0 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--inputs);
+  height: 48px;
+
+}
+
+.formTextArea {
+  padding-top: 12px;
+  height: 88px;
+  margin-bottom: 8px;
+  width: 100%;
+  resize: none;
+}
+
+.sendBtn {
+  width: 156px;
+  height: 44px;
+  background-color: var(--button);
+  font: var(--font-button);
+  border-radius: 12px;
+  color: var(--white);
+  margin: 0 auto;
+}
+
+
+
+/* Car detailed info column*/
 .detailsColumn {
   width: 488px;
   height: 1040px;
   font: var(--font-body);
   color: var(--main);
 
-  /*! Remove once tested*/
-  /* border: 0.5px dashed black; */
-  /*! Remove once tested*/
 }
 
 .carTitleBox {
@@ -79,10 +115,6 @@
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 32px;
-
-  /*! Remove once tested*/
-  /* border: 0.5px dashed black; */
-  /*! Remove once tested*/
 }
 
 .addressBox {

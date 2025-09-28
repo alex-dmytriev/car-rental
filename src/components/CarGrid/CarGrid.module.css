@@ -4,9 +4,7 @@
   margin-top: 56px;
   margin-bottom: 80px;
 
-  /* !remove when tested*/
-  /* border: 0.5px dashed black; */
-  /* !remove when tested*/
+
 
 }
 
@@ -23,9 +21,7 @@
   width: 276px;
   height: 424px;
 
-  /* !remove when tested*/
-  /* border: 0.5px dashed black; */
-  /* !remove when tested*/
+
 }
 
 .imgBox {
@@ -126,4 +122,10 @@
   font: var(--font-button);
   color: var(--white);
   margin-top: 28px;
+  transition: background-color 0.3s ease;
+
+}
+
+.cardBtn:hover {
+  background-color: var(--button-hover);
 }

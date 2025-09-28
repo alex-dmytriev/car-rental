@@ -41,10 +41,22 @@ const CarSubmitForm = () => {
   const handleSubmit = (values: FormValues, { resetForm }: { resetForm: () => void }) => {
     console.log('Submitted:', values);
 
+    toast(t => (
+      <span className={css.detWrapper}>
+        <h3>Your booking details:</h3>
+        <ul className={css.detlist}>
+          <li className={css.detItem}>Name: {values.name}</li>
+          <li className={css.detItem}>Email: {values.email}</li>
+          <li className={css.detItem}> Date: {values.date}</li>
+        </ul>
+
+        <button className={css.toastBtn} onClick={() => toast.dismiss(t.id)}>
+          Dismiss
+        </button>
+      </span>
+    ));
+    toast.success(`Thank you ${values.name}, your booking is successful!`);
     localStorage.removeItem(STORAGE_KEY);
-    toast.success(
-      `Thank you ${values.name}, your booking is successful! Booking date: ${values.date}`
-    );
     resetForm();
   };
 

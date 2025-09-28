@@ -24,7 +24,6 @@ const CarPage = () => {
 
       try {
         const data = await getCarById(id);
-        console.log('Fetched Car: ', data); //! Remove when tested
         setCar(data);
       } catch (err) {
         const errMessage = 'Failed to load Car by ID';
